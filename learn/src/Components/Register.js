@@ -26,23 +26,34 @@ function Register() {
     validationSchema: formSchema,
     
     onSubmit:(values)=>{ 
-      alert("hello")
+      Axios.post("http://localhost:1500/verify",values).then((res)=>{
+
+     if(res.data.success===true){
     Axios.post("http://localhost:1500/register",values).then((res)=>{
       console.log(res.data.success);
         if(res.data.success === true){
-          navigate("/login");
+          setTimeout(() => {
+            navigate("/login");
+            
+          }, 3000);
+          toast.success(res.data.message);
           console.log(res.data.message);  
           // navigate('/login')
         }
         else{
           toast.error(res.data.message);
         }
-      })
+      })}else{
+        toast.error(res.data.message)
+      }
+    })
     }
     });
   return (
     <div>
-    <ToastContainer/>
+    <ToastContainer
+      theme="colored"
+    />
       <Form onSubmit={handleSubmit}
         style={{
           alignItems: "center",

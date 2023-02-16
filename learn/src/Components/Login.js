@@ -22,10 +22,9 @@ const Login = () => {
       onSubmit: (values) => {
         axios.post("http://localhost:1500/login", values).then((res) => {
           if (res.data.success) {
-            // tost notificationss....
             toast.success(res.data.message);
             setTimeout(() => {
-              navigate("/books");
+              navigate("/dashboard");
             }, 1700);
           } else {
             // tost notificationss....
@@ -100,6 +99,7 @@ const Login = () => {
                     type="checkbox"
                     label="Click Here to view Password"
                     onClick={showpassword}
+                    
                   />
                 </Form.Group>
               </Form.Group>
@@ -114,16 +114,7 @@ const Login = () => {
                 </Button>
 
                 <ToastContainer
-                  // theme="colored"
-                  position="top-center"
-                  autoClose={3000}
-                  hideProgressBar={false}
-                  newestOnTop={false}
-                  closeOnClick
-                  rtl={false}
-                  pauseOnFocusLoss
-                  draggable
-                  pauseOnHover
+                  theme="colored"
                 />
               </div>
             </Form>

@@ -5,8 +5,23 @@
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
-  margin: 0;
+  /* margin: 0; */
 }
 p{
   color: red;
+}
+table {
+  /* font-family: arial, sans-serif; */
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid rgb(126, 125, 125);
+}
+
+td, th {
+  text-align: center;
+  padding: 8px;
+}
+
+td:hover{
+  background-color: whitesmoke;
 }

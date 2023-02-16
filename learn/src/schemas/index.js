@@ -13,7 +13,7 @@ export const formSchema = Yup.object({
     )
     .required("place Enter Your Password"),
   c_password: Yup.string()
-    .oneOf([Yup.ref("password"), null], "passwod Not Match")
+    .oneOf([Yup.ref("password"), null], "password Not Match")
     .required("place  Conform Your Password"),
 });
 
